@@ -1,0 +1,13 @@
+{
+    "name": "hupfc/k8uc",
+    "description": "kuai8 ucenter client",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "hupeng",
+            "email": "673643141@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
