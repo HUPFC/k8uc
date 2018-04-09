@@ -6,7 +6,7 @@
  * Time: 13:54
  */
 
-namespace app\common\service\ucopclient;
+namespace hupfc\k8uc\src\uc;
 
 
 
