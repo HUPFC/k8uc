@@ -9,7 +9,9 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {},
+    "require": {
+        "psr/log": "^1.0@dev"
+    },
     "autoload": {
         "psr-4": {
             "hupfc\\k8uc\\": "./"
