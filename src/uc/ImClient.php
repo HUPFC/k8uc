@@ -33,7 +33,7 @@ class ImClient extends CurlAbstract
 
     //获得皮肤 皮肤列表 type: 1皮肤 2披风 tips:筛选项
     public function getList($uid=false,$type,$tips,$limit,$page){
-        $url = $this->uri.'.'.strtolower(__FUNCTION__);
+        $url = $this->uri.strtolower(__FUNCTION__);
         $data = [
             'uid'=>$uid,
             'type'=>$type,
@@ -47,7 +47,7 @@ class ImClient extends CurlAbstract
 
     //获得皮肤 皮肤列表 type: 1皮肤 2披风 tips:筛选项
     public function getMyList($uid=false,$type,$tips,$limit,$page){
-        $url = $this->uri.'.'.strtolower(__FUNCTION__);
+        $url = $this->uri.strtolower(__FUNCTION__);
         $data = [
             'uid'=>$uid,
             'type'=>$type,

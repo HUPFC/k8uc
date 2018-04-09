@@ -39,7 +39,7 @@ class UserClient extends CurlAbstract
      * @return bool|mixed|string
      */
     public function checkUserNameExists($username){
-        $url = $this->uri.'.'.strtolower(__FUNCTION__);
+        $url = $this->uri.strtolower(__FUNCTION__);
         $this->params['username'] = $username;
         return $this->get($url,$this->params);
     }
@@ -50,13 +50,13 @@ class UserClient extends CurlAbstract
      * @return bool|mixed|string
      */
     public function checkEmailExists($email){
-        $url = $this->uri.'.'.strtolower(__FUNCTION__);
+        $url = $this->uri.strtolower(__FUNCTION__);
         $this->params['email'] = $email;
         return $this->get($url,$this->params);
     }
 
     public function reg($username,$password,$email){
-        $url = $this->uri.'.'.strtolower(__FUNCTION__);
+        $url = $this->uri.strtolower(__FUNCTION__);
         $data = [
             'username'=>$username,'password'=>$password,'email'=>$email
         ];
@@ -65,7 +65,7 @@ class UserClient extends CurlAbstract
     }
 
     public function editPwd($uid,$oldpassword,$password,$ignoreoldpw=false){
-        $url = $this->uri.'.'.strtolower(__FUNCTION__);
+        $url = $this->uri.strtolower(__FUNCTION__);
         $data = [
             'uid'=>$uid,
             'oldpassword'=>$oldpassword,
@@ -78,7 +78,7 @@ class UserClient extends CurlAbstract
 
     //type 0:uid 1:用户名 2:邮箱 3:手机 4:qq
     public function login($account,$password,$type,$ignorepw=0){
-        $url = $this->uri.'.'.strtolower(__FUNCTION__);
+        $url = $this->uri.strtolower(__FUNCTION__);
         $data = [
             'account'=>$account,
             'password'=>$password,
@@ -91,7 +91,7 @@ class UserClient extends CurlAbstract
 
     //type 0:uid 1:用户名 2:邮箱 3:手机 4:qq
     public function getInfo($uid){
-        $url = $this->uri.'.'.strtolower(__FUNCTION__);
+        $url = $this->uri.strtolower(__FUNCTION__);
         $data = [
             'uid'=>$uid
         ];
@@ -100,7 +100,7 @@ class UserClient extends CurlAbstract
     }
 
     public function editEmail($uid,$email){
-        $url = $this->uri.'.'.strtolower(__FUNCTION__);
+        $url = $this->uri.strtolower(__FUNCTION__);
         $data = [
             'uid'=>$uid,
             'email'=>$email,
@@ -110,7 +110,7 @@ class UserClient extends CurlAbstract
     }
 
     public function verifyEmail($uid,$email){
-        $url = $this->uri.'.'.strtolower(__FUNCTION__);
+        $url = $this->uri.strtolower(__FUNCTION__);
         $data = [
             'uid'=>$uid,
             'email'=>$email,

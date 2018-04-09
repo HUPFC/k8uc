@@ -6,7 +6,7 @@
  * Time: 9:53
  */
 
-namespace hupfc\k8uc\src\uc;
+namespace hupfc\k8uc\src;
 
 
 use Psr\Log\AbstractLogger;

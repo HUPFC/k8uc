@@ -44,7 +44,7 @@ class MailClient extends CurlAbstract
      * @return bool|mixed|string
      */
     public function send(Array $options){
-        $url = $this->uri.'.'.strtolower(__FUNCTION__);
+        $url = $this->uri.strtolower(__FUNCTION__);
         $this->params = array_merge($this->params,$options);
         $post['message'] = $this->params['message'];
         unset($this->params['message']);

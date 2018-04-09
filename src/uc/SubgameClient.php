@@ -38,7 +38,7 @@ class SubgameClient extends CurlAbstract
     }
 
     public function getInfo($sid,$nickname){
-        $url = $this->uri.'.'.strtolower(__FUNCTION__);
+        $url = $this->uri.strtolower(__FUNCTION__);
         $options = [
             'sid'=>$sid,'nickname'=>$nickname
         ];
@@ -47,7 +47,7 @@ class SubgameClient extends CurlAbstract
     }
 
     public function getList($sid,$uid){
-        $url = $this->uri.'.'.strtolower(__FUNCTION__);
+        $url = $this->uri.strtolower(__FUNCTION__);
         $options = [
             'sid'=>$sid,'uid'=>$uid
         ];
@@ -56,7 +56,7 @@ class SubgameClient extends CurlAbstract
     }
 
     public function addInfo($sid,$uid,$name){
-        $url = $this->uri.'.'.strtolower(__FUNCTION__);
+        $url = $this->uri.strtolower(__FUNCTION__);
         $options = [
             'sid'=>$sid,'uid'=>$uid,'nickname'=>$name
         ];

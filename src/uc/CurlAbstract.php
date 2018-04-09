@@ -10,6 +10,7 @@ namespace hupfc\k8uc\src\uc;
 
 
 use hupfc\k8uc\src\Config;
+use hupfc\k8uc\src\Log;
 
 abstract class CurlAbstract
 {
@@ -20,7 +21,7 @@ abstract class CurlAbstract
 
     public function __construct()
     {
-        require_once '../../lib/curl/curl.php';
+        require_once __DIR__.'/../../lib/curl/curl.php';
         $this->curl = new \Curl();
         $this->curl->options = [
             'CURLOPT_TIMEOUT'=>15,//15秒超时
