@@ -51,6 +51,6 @@ class Config
     }
 
     public static function setDomain($domain){
-        self::$params = array_merge(self::$domain,$domain);
+        self::$domain = array_merge(self::$domain,$domain);
     }
 }

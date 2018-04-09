@@ -8,10 +8,9 @@
 
 namespace hupfc\k8uc\src;
 
+use Psr\Log\LogLevel;
 
-use Psr\Log\AbstractLogger;
-
-class Log extends AbstractLogger
+class Log
 {
     protected static $self;
     protected static $log;
@@ -53,8 +52,11 @@ class Log extends AbstractLogger
                 continue;
             }
             $logLevel = $val['level'];
-            $msg = $val['msg'];
-            $json = json_encode($val['context']);
+            $msg = $val['message'];
+            $json = '';
+            if($val['context']){
+                $json = json_encode($val['context']);
+            }
             $depr .= "[ $logLevel ] $msg  $json"."\r\n";
         }
         if(!$depr){
@@ -69,7 +71,7 @@ class Log extends AbstractLogger
         }
         $depr = "\r\n---------------------------------------------------------------\r\n"."[ ".date('Y-m-d H:i:s')." ]".$current_uri."\r\n".$depr;
         $f = fopen($config['file']['path'],'a+');
-        fwrite($f,$depr,10240);
+        $rs = fwrite($f,$depr,10240);
         fclose($f);
         return true;
     }
@@ -81,4 +83,21 @@ class Log extends AbstractLogger
             'context'=>$context,
         ];
     }
+
+    public function info($message,Array $array=[]){
+        $this->log(LogLevel::INFO,$message,$array);
+    }
+
+    public function error($message,Array $array=[]){
+        $this->log(LogLevel::ERROR,$message,$array);
+    }
+
+    public function warn($message,Array $array=[]){
+        $this->log(LogLevel::WARNING,$message,$array);
+    }
+
+    public function debug($message,Array $array=[]){
+        $this->log(LogLevel::DEBUG,$message,$array);
+    }
+
 }
