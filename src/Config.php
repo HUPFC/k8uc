@@ -35,11 +35,12 @@ class Config
         ],
         'uc'=>[
             'user'=>'http_domain',
-            'mc'=>'http_domain'
+            'mc'=>'http_domain',
+            'forum'=>'http_domain'
         ],
         'op'=>[
 
-        ],
+        ]
     ];
 
     public static function setLogOptions($options){
