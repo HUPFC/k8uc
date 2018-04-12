@@ -89,10 +89,11 @@ class McClient extends CurlAbstract
      *              data
      *                  status:true|false
      */
-    public function getOrderStatus($order_num){
+    public function getOrderStatus($order_num,$uid){
         $url = $this->uri.strtolower(__FUNCTION__);
         $data = [
-            'order_num'=>$order_num
+            'order_num'=>$order_num,
+            'uid'=>$uid
         ];
         $params = array_merge($this->params,$data);
         return $this->get($url,$params);

@@ -14,6 +14,7 @@ class Log
 {
     protected static $self;
     protected static $log;
+    public static $save=true;
     protected static $options=[
         'map'=>[
             'error','warning','info','debug'
