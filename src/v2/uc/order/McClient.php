@@ -137,6 +137,13 @@ class McClient extends CurlAbstract
      *                      mc_order_info
      */
     public function getOrderList($uid,$page,$limit=20){
-        return [];
+        $url = $this->uri.strtolower(__FUNCTION__);
+        $data = [
+            'uid'=>$uid,
+            'page'=>$page,
+            'limit'=>$limit
+        ];
+        $params = array_merge($this->params,$data);
+        return $this->get($url,$params);
     }
 }
