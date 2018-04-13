@@ -41,8 +41,8 @@ class MobileClient extends CurlAbstract
         $options = [
             'mobile'=>$mobile,'content'=>$content,'mac'=>$mac
         ];
-        $this->params = array_merge($this->params,$options);
-        return $this->get($url,$this->params);
+        $params = array_merge($this->params,$options);
+        return $this->get($url,$params);
     }
     
     public function checkMobile($mobile){
@@ -50,8 +50,8 @@ class MobileClient extends CurlAbstract
         $options = [
             'mobile'=>$mobile
         ];
-        $this->params = array_merge($this->params,$options);
-        return $this->get($url,$this->params);
+        $params = array_merge($this->params,$options);
+        return $this->get($url,$params);
     }
 
     public function reg($mobile,$code,$password){
@@ -59,7 +59,7 @@ class MobileClient extends CurlAbstract
         $options = [
             'mobile'=>$mobile,'code'=>$code,'password'=>$password
         ];
-        $this->params = array_merge($this->params,$options);
-        return $this->get($url,$this->params);
+        $params = array_merge($this->params,$options);
+        return $this->get($url,$params);
     }
 }

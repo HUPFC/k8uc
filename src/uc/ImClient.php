@@ -41,8 +41,8 @@ class ImClient extends CurlAbstract
             'limit'=>$limit,
             'page'=>$page
         ];
-        $this->params = array_merge($this->params,$data);
-        return $this->get($url,$data);
+        $params = array_merge($this->params,$data);
+        return $this->get($url,$params);
     }
 
     //获得皮肤 皮肤列表 type: 1皮肤 2披风 tips:筛选项
@@ -55,7 +55,7 @@ class ImClient extends CurlAbstract
             'limit'=>$limit,
             'page'=>$page
         ];
-        $this->params = array_merge($this->params,$data);
-        return $this->get($url,$data);
+        $params = array_merge($this->params,$data);
+        return $this->get($url,$params);
     }
 }
