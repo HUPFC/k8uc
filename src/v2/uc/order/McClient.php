@@ -58,6 +58,36 @@ class McClient extends CurlAbstract
     }
 
     /**
+     * 查看mc是否有未支付订单
+     * @param array $options 同create接口
+     * @return bool|mixed|string
+     *              code
+     *              msg
+     *              data
+     *                  list:未支付订单列表
+     */
+    public function getUnPayOrder(Array $options){
+        $url = $this->uri.strtolower(__FUNCTION__);
+        $params = array_merge($this->params,$options);
+        return $this->get($url,$params);
+    }
+
+    /**
+     * 将mc同种商品下的订单置为已过期
+     * @param array $options 同create接口
+     * @return bool|mixed|string
+     *              code
+     *              msg
+     *              data
+     *                  list:未支付订单列表
+     */
+    public function loseOrder(Array $options){
+        $url = $this->uri.strtolower(__FUNCTION__);
+        $params = array_merge($this->params,$options);
+        return $this->get($url,$params);
+    }
+
+    /**
      * @param $uid
      * @param $order_num
      * @return array
