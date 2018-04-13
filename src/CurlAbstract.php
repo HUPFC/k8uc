@@ -25,6 +25,9 @@ abstract class CurlAbstract
         ];
 
         $this->params = Config::$params;
+        if($this->params['userip'] == 'test'){
+            throw new \Exception('请初始化配置');
+        }
     }
 
     /**
