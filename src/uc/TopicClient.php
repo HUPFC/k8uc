@@ -21,21 +21,8 @@ class TopicClient extends CurlAbstract {
     }
     
     //动态展示
-    /**
-     * 
-     * @param array $options
-     *                  limit
-     *                  page
-     *                  筛选字段
-     * @return type
-     */
-    public function topicList(Array $options) {
-        $url = $this->uri.strtolower(__FUNCTION__);
-        $data = [
-            'username'=>$username,'password'=>$password,'email'=>$email
-        ];
-        $this->params = array_merge($this->params,$data);
-        return $this->get($url,$this->params);
+    public function topicList() {
+        
     }
     
     //动态详情（评论列表）
