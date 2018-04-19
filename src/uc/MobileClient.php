@@ -36,10 +36,19 @@ class MobileClient extends CurlAbstract
     }
 
 
-    public function send($mobile,$content,$mac){
+    public function send($mac,$mobile,$signame,$templatecode){
         $url = $this->uri.strtolower(__FUNCTION__);
         $options = [
-            'mobile'=>$mobile,'content'=>$content,'mac'=>$mac
+            'mac'=>$mac,'mobile'=>$mobile,'signame'=>$signame,'templatecode'=>$templatecode
+        ];
+        $params = array_merge($this->params,$options);
+        return $this->get($url,$params);
+    }
+    
+    public function checkCode($code,$mobile,$signame,$templatecode) {
+        $url = $this->uri.strtolower(__FUNCTION__);
+        $options = [
+            'code'=>$code,'mobile'=>$mobile,'signame'=>$signame,'templatecode'=>$templatecode
         ];
         $params = array_merge($this->params,$options);
         return $this->get($url,$params);
