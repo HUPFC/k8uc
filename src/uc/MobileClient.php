@@ -53,22 +53,4 @@ class MobileClient extends CurlAbstract
         $params = array_merge($this->params,$options);
         return $this->get($url,$params);
     }
-    
-    public function checkMobile($mobile){
-        $url = $this->uri.strtolower(__FUNCTION__);
-        $options = [
-            'mobile'=>$mobile
-        ];
-        $params = array_merge($this->params,$options);
-        return $this->get($url,$params);
-    }
-
-    public function reg($mobile,$code,$password){
-        $url = $this->uri.strtolower(__FUNCTION__);
-        $options = [
-            'mobile'=>$mobile,'code'=>$code,'password'=>$password
-        ];
-        $params = array_merge($this->params,$options);
-        return $this->get($url,$params);
-    }
 }

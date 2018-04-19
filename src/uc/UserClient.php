@@ -40,8 +40,9 @@ class UserClient extends CurlAbstract
      */
     public function checkUserNameExists($username){
         $url = $this->uri.strtolower(__FUNCTION__);
-        $this->params['username'] = $username;
-        return $this->get($url,$this->params);
+        $data['username'] = $username;
+        $data = array_merge($this->params,$data);
+        return $this->get($url,$data);
     }
 
     /**
@@ -51,17 +52,18 @@ class UserClient extends CurlAbstract
      */
     public function checkEmailExists($email){
         $url = $this->uri.strtolower(__FUNCTION__);
-        $this->params['email'] = $email;
-        return $this->get($url,$this->params);
+        $data['email'] = $email;
+        $data = array_merge($this->params,$data);
+        return $this->get($url,$data);
     }
 
-    public function reg($username,$password,$email){
+    public function reg($username,$password,$email=null){
         $url = $this->uri.strtolower(__FUNCTION__);
         $data = [
             'username'=>$username,'password'=>$password,'email'=>$email
         ];
-        $this->params = array_merge($this->params,$data);
-        return $this->get($url,$this->params);
+        $data = array_merge($this->params,$data);
+        return $this->get($url,$data);
     }
 
     public function editPwd($uid,$oldpassword,$password,$ignoreoldpw=false){
@@ -72,7 +74,7 @@ class UserClient extends CurlAbstract
             'password'=>$password,
             'ignoreoldpw'=>$ignoreoldpw,
         ];
-        $this->params = array_merge($this->params,$data);
+        $data = array_merge($this->params,$data);
         return $this->get($url,$data);
     }
 
@@ -85,7 +87,7 @@ class UserClient extends CurlAbstract
             'type'=>$type,
             'ignorepw'=>$ignorepw
         ];
-        $this->params = array_merge($this->params,$data);
+        $data = array_merge($this->params,$data);
         return $this->get($url,$data);
     }
 
@@ -95,7 +97,7 @@ class UserClient extends CurlAbstract
         $data = [
             'uid'=>$uid
         ];
-        $this->params = array_merge($this->params,$data);
+        $data = array_merge($this->params,$data);
         return $this->get($url,$data);
     }
 
@@ -105,7 +107,18 @@ class UserClient extends CurlAbstract
             'uid'=>$uid,
             'email'=>$email,
         ];
-        $this->params = array_merge($this->params,$data);
+        $data = array_merge($this->params,$data);
+        return $this->get($url,$data);
+    }
+
+    public function editEmailV2($uid,$old_email,$new_email){
+        $url = $this->uri.strtolower(__FUNCTION__);
+        $data = [
+            'uid'=>$uid,
+            'old_email'=>$old_email,
+            'new_email'=>$new_email,
+        ];
+        $data = array_merge($this->params,$data);
         return $this->get($url,$data);
     }
 
@@ -115,7 +128,18 @@ class UserClient extends CurlAbstract
             'uid'=>$uid,
             'email'=>$email,
         ];
-        $this->params = array_merge($this->params,$data);
+        $data = array_merge($this->params,$data);
+        return $this->get($url,$data);
+    }
+
+    public function updateUserDetail($uid,$nick=false,$head=false){
+        $url = $this->uri.strtolower(__FUNCTION__);
+        $data = [
+            'uid'=>$uid,
+            'nick'=>$nick,
+            'head'=>$head,
+        ];
+        $data = array_merge($this->params,$data);
         return $this->get($url,$data);
     }
 }
