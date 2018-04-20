@@ -5,8 +5,7 @@
  * Date: 2018/2/28
  * Time: 13:54
  */
-
-namespace hupfc\k8uc\src\uc;
+namespace hupfc\k8uc\src\v2\uc\user;
 
 
 
