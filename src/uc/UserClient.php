@@ -78,6 +78,19 @@ class UserClient extends CurlAbstract
         return $this->get($url,$data);
     }
 
+    //通过手机号获取用户信息 ,或用于 检查手机号是否已注册
+    public function getUserInfoByMobile($mobile){
+        $url = $this->uri.strtolower(__FUNCTION__);
+        $data = [
+            'account'=>$mobile,
+            'password'=>null,
+            'type'=>5,
+            'ignorepw'=>true
+        ];
+        $data = array_merge($this->params,$data);
+        return $this->get($url,$data);
+    }
+
     //type 0:uid 1:用户名 2:邮箱 3:手机 4:qq
     public function login($account,$password,$type,$ignorepw=0){
         $url = $this->uri.strtolower(__FUNCTION__);
