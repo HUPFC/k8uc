@@ -8,7 +8,11 @@
 
 namespace hupfc\k8uc\src;
 
-
+/**
+ * Class OutCode
+ * @package hupfc\k8uc\src
+ * 错误码
+ */
 class OutCode
 {
 
