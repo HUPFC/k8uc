@@ -40,9 +40,9 @@ hook是基于tp5.0.18的php页面静态化插件
 对应模块的 tags配置
     //web模块静态化配置
     'module_init'=>[
-        '\\app\\common\\hook\\ReadHtmlCacheBehavior',
+        '\\hupfc\\k8uc\\src\\hook\\ReadHtmlCacheBehavior',
     ],
     'view_filter'=>[
-        '\\app\\common\\hook\\WriteHtmlCacheBehavior',
+        '\\hupfc\\k8uc\\src\\hook\\WriteHtmlCacheBehavior',
     ],
 ```
