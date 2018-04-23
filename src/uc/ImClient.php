@@ -58,4 +58,15 @@ class ImClient extends CurlAbstract
         $params = array_merge($this->params,$data);
         return $this->get($url,$params);
     }
+
+    //获得皮肤 皮肤列表 type: 1皮肤 2披风
+    public function getImInfo($id,$type){
+        $url = $this->uri.strtolower(__FUNCTION__);
+        $data = [
+            'id'=>$id,
+            'type'=>$type
+        ];
+        $params = array_merge($this->params,$data);
+        return $this->get($url,$params);
+    }
 }
