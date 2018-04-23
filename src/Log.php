@@ -71,7 +71,8 @@ class Log
             $current_uri = "cmd:" . implode(' ', $_SERVER['argv']);
         }
         $depr = "\r\n---------------------------------------------------------------\r\n"."[ ".date('Y-m-d H:i:s')." ]".$current_uri."\r\n".$depr;
-        $f = fopen($config['file']['path'],'a+');
+        $path = $config['file']['path'].'_'.date('Ymd');
+        $f = fopen($path,'a+');
         $rs = fwrite($f,$depr,10240);
         fclose($f);
         return true;
