@@ -129,4 +129,23 @@ class ThirdClient extends CurlAbstract
         $params = array_merge($this->params,$options);
         return $this->get($url,$params);
     }
+    
+    public function checkInit($uid) {
+        $url = $this->uri.strtolower(__FUNCTION__);
+        $options = [
+            'uid'=>$uid
+        ];
+        $params = array_merge($this->params,$options);
+        return $this->get($url,$params);
+    }
+    
+    public function updateInit($uid,$password) {
+        $url = $this->uri.strtolower(__FUNCTION__);
+        $options = [
+            'uid'=>$uid,
+            'password'=>$password
+        ];
+        $params = array_merge($this->params,$options);
+        return $this->get($url,$params);
+    }
 }
