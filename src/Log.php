@@ -45,6 +45,9 @@ class Log
         $log = self::$log;
         $level = $config['level'];
         $depr = '';
+        if(!$log){
+            return false;
+        }
         foreach ($log as $val){
             if(!$level){
                 break;
@@ -75,6 +78,7 @@ class Log
         $f = fopen($path,'a+');
         $rs = fwrite($f,$depr,10240);
         fclose($f);
+        self::$log = [];//重置log
         return true;
     }
 
