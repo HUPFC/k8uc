@@ -11,7 +11,11 @@ namespace hupfc\k8uc\src\v2\uc\mc;
 use hupfc\k8uc\src\Config;
 use hupfc\k8uc\src\CurlAbstract;
 
-
+/**
+ * Class PointsClient
+ * @package hupfc\k8uc\src\v2\uc\mc
+ * 点卷类
+ */
 class PointsClient extends CurlAbstract
 {
     protected static $self;
