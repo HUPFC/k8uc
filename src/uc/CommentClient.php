@@ -6,6 +6,7 @@ use hupfc\k8uc\src\uc\CurlAbstract;
 
 class CommentClient extends CurlAbstract {
     protected static $self;
+    public $uri;
     /**
      * @return CommentClient
      * 用于静态方式 单例方式调用类
