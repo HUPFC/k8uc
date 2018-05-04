@@ -63,4 +63,16 @@ class SubgameClient extends CurlAbstract
         $this->params = array_merge($this->params,$options);
         return $this->get($url,$this->params);
     }
+
+    /**
+     * 获取所有昵称
+     */
+    public function getAll($uid){
+        $url = $this->uri.strtolower(__FUNCTION__);
+        $options = [
+            'uid'=>$uid,
+        ];
+        $this->params = array_merge($this->params,$options);
+        return $this->get($url,$this->params);
+    }
 }
