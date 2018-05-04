@@ -148,4 +148,14 @@ class ThirdClient extends CurlAbstract
         $params = array_merge($this->params,$options);
         return $this->get($url,$params);
     }
+
+    public function thirdLogin($openid,$type){
+        $url = $this->uri.strtolower(__FUNCTION__);
+        $options = [
+            'openid'=>$openid,
+            'type'=>$type
+        ];
+        $params = array_merge($this->params,$options);
+        return $this->get($url,$params);
+    }
 }
