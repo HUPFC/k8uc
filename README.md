@@ -29,12 +29,6 @@ hook是基于tp5.0.18的php页面静态化插件
         'Static:'=>array('{:module}/{:controller}/{:action}',50),//第一个参数是构造的字符串，后面是缓存50秒
         //4.Hmtl控制器的md5操作
         'Html:md5'=>array('{:module}/{:controller}/{:action}'),*/
-
-        //todo 页面静态化规则配置
-        'mc:netindex'=>[$path],
-        'mc:netinfo'=>[$path.'/{id}'],
-        'mc:netfilter'=>[$path.'/{playtype}_{gamever}_{order}_{page}'],
-        'mc:single'=>[$path],
     )
 
 对应模块的 tags配置
