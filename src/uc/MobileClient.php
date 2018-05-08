@@ -36,6 +36,25 @@ class MobileClient extends CurlAbstract
     }
 
 
+    /**
+     * 发送手机验证码
+     * @param $mac
+     * @param $mobile
+     * @param $signame SIGNAME的key
+     * @param $templatecode TEMPLATE_CODE的key
+     * @return bool|mixed|string
+     *     CONST SIGNAME =[
+            'test'=>'阿里云短信测试专用',
+            'mc'=>'快吧我的世界盒子',
+            'kop'=>'快吧联机大厅',
+            'kzs'=>'快吧手游盒子'
+            ];
+            CONST TEMPLATE_CODE = [
+            'reg'=>'SMS_130415004',
+            'login'=>'SMS_130415005',
+            'mobile_valible'=>'SMS_130415006',
+            ];
+     */
     public function send($mac,$mobile,$signame,$templatecode){
         $url = $this->uri.strtolower(__FUNCTION__);
         $options = [

@@ -57,6 +57,25 @@ class UserClient extends CurlAbstract
         return $this->get($url,$data);
     }
 
+    /**
+     * 检查手机号是否已被注册
+     * @param $mobile
+     * @return bool|mixed|string
+     */
+    public function checkMobileExists($mobile){
+        $url = $this->uri.strtolower(__FUNCTION__);
+        $data['mobile'] = $mobile;
+        $data = array_merge($this->params,$data);
+        return $this->get($url,$data);
+    }
+
+    /**
+     * 帐号注册接口
+     * @param $username
+     * @param $password
+     * @param null $email
+     * @return bool|mixed|string
+     */
     public function reg($username,$password,$email=null){
         $url = $this->uri.strtolower(__FUNCTION__);
         $data = [
@@ -66,6 +85,14 @@ class UserClient extends CurlAbstract
         return $this->get($url,$data);
     }
 
+    /**
+     * 修改密码接口
+     * @param $uid
+     * @param $oldpassword
+     * @param $password
+     * @param bool $ignoreoldpw
+     * @return bool|mixed|string
+     */
     public function editPwd($uid,$oldpassword,$password,$ignoreoldpw=false){
         $url = $this->uri.strtolower(__FUNCTION__);
         $data = [
