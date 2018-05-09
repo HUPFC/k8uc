@@ -149,7 +149,7 @@ class ThirdClient extends CurlAbstract
         return $this->get($url,$params);
     }
 
-    public function thirdLogin($openid,$type){
+    public function thirdVerify($openid,$type){
         $url = $this->uri.strtolower(__FUNCTION__);
         $options = [
             'openid'=>$openid,
