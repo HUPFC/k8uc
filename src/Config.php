@@ -36,7 +36,8 @@ class Config
         'uc'=>[
             'user'=>'http_domain',
             'mc'=>'http_domain',
-            'forum'=>'http_domain'
+            'forum'=>'http_domain',
+            'upload'=>'http_domain',
         ],
         'op'=>[
 
