@@ -27,7 +27,7 @@ class UploadClient extends CurlAbstract
             return self::$self;
         }
         self::$self = new self();
-        self::$self->uri = Config::$domain['uc']['upload'].'/upload/';
+        self::$self->uri = Config::$domain['uc']['upload'].'/img/';
         return self::$self;
     }
 
