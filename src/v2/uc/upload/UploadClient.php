@@ -42,8 +42,35 @@ class UploadClient extends CurlAbstract
         return $this->get($url,$params);
     }
 
-    public function upload(){
+    /**
+     * 通过curl 模拟发送文件
+     * @param array $data
+     */
+    public function upload($data){
 
+        $url = $this->uri . strtolower(__FUNCTION__);
+        $curlFiles=[];
+        foreach ($data as $key=>$value){
+            $curlFiles[$key]=new \CURLFile($value);
+        }
+        $dataTotal=$curlFiles;
+//        echo (json_encode($dataTotal));die;
+        //初始化curl
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_SAFE_UPLOAD, false);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $dataTotal);
+        $response = curl_exec($ch);
+        //获取curl相关信息
+//         $info=curl_getinfo($ch);
+        curl_close($ch);
+        //容错机制
+        if ($response === false){
+            return curl_errno($ch);
+        }
+        return $response;
     }
 
 }
