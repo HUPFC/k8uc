@@ -33,12 +33,13 @@ class ThirdClient extends CurlAbstract
 
     public $uri;
 
-    public function qqLogin($openid,$name=false,$header=false){
+    public function qqLogin($openid,$unionid=false,$name=false,$header=false){
         $url = $this->uri.strtolower(__FUNCTION__);
         $options = [
             'openid'=>$openid,
-            'name'=>$name,
-            'header'=>$header
+            'thirdname'=>$name,
+            'thirdheader'=>$header,
+            'unionid'=>$unionid
         ];
         $params = array_merge($this->params,$options);
         return $this->get($url,$params);
@@ -59,19 +60,20 @@ class ThirdClient extends CurlAbstract
         $options = [
             'openid'=>$openid,
             'uid'=>$uid,
-            'name'=>$name,
-            'header'=>$header
+            'thirdname'=>$name,
+            'thirdheader'=>$header
         ];
         $params = array_merge($this->params,$options);
         return $this->get($url,$params);
     }
 
-    public function wxLogin($openid,$name=false,$header=false){
+    public function wxLogin($openid,$unionid=false,$name=false,$header=false){
         $url = $this->uri.strtolower(__FUNCTION__);
         $options = [
             'openid'=>$openid,
-            'name'=>$name,
-            'header'=>$header
+            'thirdname'=>$name,
+            'thirdheader'=>$header,
+            'unionid'=>$unionid
         ];
         $params = array_merge($this->params,$options);
         return $this->get($url,$params);
@@ -92,8 +94,8 @@ class ThirdClient extends CurlAbstract
         $options = [
             'openid'=>$openid,
             'uid'=>$uid,
-            'name'=>$name,
-            'header'=>$header
+            'thirdname'=>$name,
+            'thirdheader'=>$header
         ];
         $params = array_merge($this->params,$options);
         return $this->get($url,$params);
