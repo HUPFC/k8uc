@@ -45,23 +45,25 @@ class ThirdClient extends CurlAbstract
         return $this->get($url,$params);
     }
 
-    public function qqUnBind($uid,$openid){
+    public function qqUnBind($bind){
         $url = $this->uri.strtolower(__FUNCTION__);
         $options = [
-            'openid'=>$openid,
-            'uid'=>$uid,
+            'openid'=>$bind['openid'],
+            'uid'=>$bind['uid'],
+            'unionid'=>$bind['unionid']
         ];
         $params = array_merge($this->params,$options);
         return $this->get($url,$params);
     }
 
-    public function qqBind($uid,$openid,$name=false,$header=false){
+    public function qqBind($bind){
         $url = $this->uri.strtolower(__FUNCTION__);
         $options = [
-            'openid'=>$openid,
-            'uid'=>$uid,
-            'thirdname'=>$name,
-            'thirdheader'=>$header
+            'openid'=>$bind['openid'],
+            'uid'=>$bind['uid'],
+            'thirdname'=>$bind['thirdname'],
+            'thirdheader'=>$bind['thirdheader'],
+            'unionid'   =>$bind['unionid']
         ];
         $params = array_merge($this->params,$options);
         return $this->get($url,$params);
@@ -79,23 +81,25 @@ class ThirdClient extends CurlAbstract
         return $this->get($url,$params);
     }
 
-    public function wxUnBind($uid,$openid){
+    public function wxUnBind($bind){
         $url = $this->uri.strtolower(__FUNCTION__);
         $options = [
-            'openid'=>$openid,
-            'uid'=>$uid,
+            'openid'=>$bind['openid'],
+            'uid'=>$bind['uid'],
+            'unionid'=>$bind['unionid']
         ];
         $params = array_merge($this->params,$options);
         return $this->get($url,$params);
     }
 
-    public function wxBind($uid,$openid,$name=false,$header=false){
+    public function wxBind($bind){
         $url = $this->uri.strtolower(__FUNCTION__);
         $options = [
-            'openid'=>$openid,
-            'uid'=>$uid,
-            'thirdname'=>$name,
-            'thirdheader'=>$header
+            'openid'=>$bind['openid'],
+            'uid'=>$bind['uid'],
+            'thirdname'=>$bind['thirdname'],
+            'thirdheader'=>$bind['thirdheader'],
+            'unionid'   =>$bind['unionid']
         ];
         $params = array_merge($this->params,$options);
         return $this->get($url,$params);
@@ -151,11 +155,12 @@ class ThirdClient extends CurlAbstract
         return $this->get($url,$params);
     }
 
-    public function thirdVerify($openid,$type){
+    public function thirdVerify($data){
         $url = $this->uri.strtolower(__FUNCTION__);
         $options = [
-            'openid'=>$openid,
-            'type'=>$type
+            'openid'=>$data['openid'],
+            'type'=>$data['type'],
+            'unionid'=>$data['unionid']
         ];
         $params = array_merge($this->params,$options);
         return $this->get($url,$params);
