@@ -182,4 +182,16 @@ class UserClient extends CurlAbstract
         $data = array_merge($this->params,$data);
         return $this->get($url,$data);
     }
+    
+    public function editInfo($uid,$img_id,$head,$nick){
+        $url = $this->uri.strtolower(__FUNCTION__);
+        $data = [
+            'uid'=>$uid,
+            'img_id'=>$img_id,
+            'nick'=>$nick,
+            'head'=>$head,
+        ];
+        $data = array_merge($this->params,$data);
+        return $this->get($url,$data);
+    }
 }
