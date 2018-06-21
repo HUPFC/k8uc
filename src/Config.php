@@ -30,18 +30,15 @@ class Config
     ];
 
     public static $domain = [
-        'mc'=>[
-
-        ],
         'uc'=>[
             'user'=>'http_domain',
             'mc'=>'http_domain',
             'forum'=>'http_domain',
             'upload'=>'http_domain',
         ],
-        'op'=>[
+        'k8'=>[
 
-        ],
+        ]
     ];
 
     public static function setLogOptions($options){
