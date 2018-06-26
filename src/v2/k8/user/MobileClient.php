@@ -6,7 +6,7 @@
  * Time: 11:35
  */
 
-namespace hupfc\k8uc\src\uc;
+namespace hupfc\k8uc\src\v2\k8\user;
 
 
 
