@@ -37,7 +37,7 @@ class Config
             'upload'=>'http_domain',
         ],
         'k8'=>[
-
+            'user'=>'http_domain',
         ]
     ];
 
