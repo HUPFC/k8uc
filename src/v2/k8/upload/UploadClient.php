@@ -39,7 +39,7 @@ class UploadClient extends CurlAbstract
             'md5'=>$md5,
         ];
         $params = array_merge($this->params,$options);
-        return $this->post($url,$params);
+        return $this->get($url,$params);
     }
 
     /**
@@ -65,11 +65,11 @@ class UploadClient extends CurlAbstract
         $response = curl_exec($ch);
         //获取curl相关信息
 //         $info=curl_getinfo($ch);
-        curl_close($ch);
         //容错机制
         if ($response === false){
             return curl_errno($ch);
         }
+        curl_close($ch);
         return $response;
     }
 
