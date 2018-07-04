@@ -38,6 +38,7 @@ class Config
         ],
         'k8'=>[
             'user'=>'http_domain',
+            'upload'=>'http_domain',
         ]
     ];
 
