@@ -39,7 +39,7 @@ class UploadClient extends CurlAbstract
             'md5'=>$md5,
         ];
         $params = array_merge($this->params,$options);
-        return $this->get($url,$params);
+        return $this->post($url,$params);
     }
 
     /**
