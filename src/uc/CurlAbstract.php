@@ -68,4 +68,31 @@ abstract class CurlAbstract
             return $rs->body;
         }
     }
+
+    /**
+     * @param $url
+     * @param $files
+     * @return mixed
+     * @throws \Exception
+     * 图片上传
+     */
+    protected function postImage($url,$files){
+        Log::self()->info("[CURL][UPLOAD][START][{$url}]");
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_SAFE_UPLOAD, false);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $files);
+        $response = curl_exec($ch);
+        if ($response === false){
+            throw new \Exception(curl_error($ch));
+        }
+        curl_close($ch);
+        $array = json_decode($response,true);
+        if(!$array){
+            throw new \Exception($response);
+        }
+        return $array;
+    }
 }

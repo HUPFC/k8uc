@@ -73,4 +73,29 @@ class UploadClient extends CurlAbstract
         return $response;
     }
 
+    public function uploadByFile(
+        $max_size=5242880,
+        $allow_type=array(
+            'image/gif',
+            'image/jpg',
+            'image/bmp',
+            'image/png',
+            'image/jpeg')
+    ){
+        $url = $this->uri . 'upload?'.http_build_query($this->params);
+        if(!$_FILES){
+            throw new \Exception('图片不存在');
+        }
+        $curlFiles=[];
+        foreach ($_FILES as $key=>$val){
+            $mime = exif_imagetype($val['tmp_name']);
+            $mime = image_type_to_mime_type($mime);
+            if(!in_array($mime,$allow_type)){
+                throw new \Exception('只允许上传jpg,bmp,jpg,png格式的图片');
+            }
+            $curlFiles[$key]=new \CURLFile($val['tmp_name']);
+        }
+        $rs = $this->postImage($url,$curlFiles);
+        return $rs;
+    }
 }
