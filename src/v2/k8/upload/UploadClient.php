@@ -88,6 +88,9 @@ class UploadClient extends CurlAbstract
         }
         $curlFiles=[];
         foreach ($_FILES as $key=>$val){
+            if($val['size'] > $max_size){
+                throw new \Exception('图片太大，最多允许上传5M');
+            }
             $mime = exif_imagetype($val['tmp_name']);
             $mime = image_type_to_mime_type($mime);
             if(!in_array($mime,$allow_type)){

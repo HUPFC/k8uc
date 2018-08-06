@@ -77,7 +77,7 @@ abstract class CurlAbstract
      * 图片上传
      */
     protected function postImage($url,$files){
-        Log::self()->info("[CURL][UPLOAD][START][{$url}]");
+        Log::self()->info("[CURL][postImage][START][{$url}]");
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -86,13 +86,16 @@ abstract class CurlAbstract
         curl_setopt($ch, CURLOPT_POSTFIELDS, $files);
         $response = curl_exec($ch);
         if ($response === false){
+            Log::self()->error("[CURL][postImage][FAILED][error:".curl_error($ch)."]");
             throw new \Exception(curl_error($ch));
         }
         curl_close($ch);
         $array = json_decode($response,true);
         if(!$array){
+            Log::self()->error("[CURL][postImage][FAILED][error:".$response."]");
             throw new \Exception($response);
         }
+        Log::self()->info("[CURL][postImage][SUCCESS][result:".$response."]");
         return $array;
     }
 }
