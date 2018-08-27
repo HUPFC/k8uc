@@ -1,6 +1,7 @@
 # k8uc
 k8 ucenter client
 ```
+v2/uc  v2/k8 对应的是两个不同的项目
 调用uc系列接口时
 先实例化hupfc\k8uc\src\Config的配置
            setLogOptions
