@@ -151,12 +151,13 @@ class UserClient extends CurlAbstract
         return $this->get($url,$data);
     }
 
-    public function editEmailV2($uid,$old_email,$new_email){
+    public function editEmailV2($uid,$old_email,$new_email,$client_type = ''){
         $url = $this->uri.strtolower(__FUNCTION__);
         $data = [
             'uid'=>$uid,
             'old_email'=>$old_email,
             'new_email'=>$new_email,
+            'client_type'=>$client_type
         ];
         $data = array_merge($this->params,$data);
         return $this->get($url,$data);
