@@ -11,7 +11,7 @@ namespace hupfc\k8uc\src\v2\k8\user;
 
 
 use hupfc\k8uc\src\Config;
-use hupfc\k8uc\src\uc\CurlAbstract;
+use hupfc\k8uc\src\CurlAbstract;
 
 class MobileClient extends CurlAbstract
 {

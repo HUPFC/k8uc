@@ -13,7 +13,7 @@ abstract class CurlAbstract
     public $params;//参数
     public $curl;
     public $response;
-    
+
 
     public function __construct()
     {
