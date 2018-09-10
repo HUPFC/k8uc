@@ -15,6 +15,13 @@ namespace hupfc\k8uc\src;
  */
 class Config
 {
+    //客户端类型
+    const K8PC =1;
+    const K8AQ =2;
+    const K8M =3;
+    const K8XYX=4;
+    const K8M_ADMIN=5;
+
     public static $log_options=[
         'map'=>[
             'error','warning','info','debug'
