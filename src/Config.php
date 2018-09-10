@@ -8,7 +8,11 @@
 
 namespace hupfc\k8uc\src;
 
-
+/**
+ * Class Config
+ * @package hupfc\k8uc\src
+ * 配置初始化，必须调用Config::setParams  Config::setDomain 其他函数可以不使用
+ */
 class Config
 {
     public static $log_options=[
@@ -16,9 +20,9 @@ class Config
             'error','warning','info','debug'
         ],
         'type'=>'file',
-        'level'=>[],
+        'level'=>['error','warning','info','debug'],
         'file'=>[
-            'path'=>'psr.log'
+            'path'=>__DIR__.'/psr.log'
         ]
     ];
 
@@ -30,24 +34,18 @@ class Config
     ];
 
     public static $domain = [
-        'uc'=>[
-            'user'=>'http_domain',
-            'mc'=>'http_domain',
-            'forum'=>'http_domain',
-            'upload'=>'http_domain',
-        ],
         'k8'=>[
-            'user'=>'http_domain',
-            'upload'=>'http_domain',
+            'user'=>'domain',
+            'upload'=>'domain',
         ]
     ];
 
-    public static function setLogOptions($options){
-        self::$log_options = array_merge(self::$log_options,$options);
-    }
-
     public static function setParams($params){
         self::$params = array_merge(self::$params,$params);
+    }
+
+    public static function setLogOptions($options){
+        self::$log_options = array_merge(self::$log_options,$options);
     }
 
     public static function setDomain($domain){

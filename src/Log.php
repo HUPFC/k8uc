@@ -40,6 +40,13 @@ class Log
         return self::$self;
     }
 
+    /**
+     * @return bool
+     *  调用方运行
+        register_shutdown_function(function(){
+            Log::self()->save();
+        });
+     */
     public function save(){
         $config = Log::$options;
         $log = self::$log;

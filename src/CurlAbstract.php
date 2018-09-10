@@ -56,7 +56,7 @@ abstract class CurlAbstract
      * @return bool|mixed|string
      */
     protected function post($url,Array $params,$options=array()){
-        Log::self()->info("[CURL][POST][START][{$url}]");
+        Log::self()->info("[CURL][POST][START][{$url}][".substr(json_encode($params,JSON_UNESCAPED_UNICODE),0,512)."]");
         $rs = $this->curl->post($url,$params);
         $this->response = $rs;
         if($this->curl->error()){
@@ -77,7 +77,7 @@ abstract class CurlAbstract
      * 图片上传
      */
     protected function postImage($url,$files){
-        Log::self()->info("[CURL][postImage][START][{$url}]");
+        Log::self()->info("[CURL][postImage][START][{$url}][".json_encode($files,JSON_UNESCAPED_UNICODE)."]");
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

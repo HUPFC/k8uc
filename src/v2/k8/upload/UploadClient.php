@@ -42,11 +42,12 @@ class UploadClient extends CurlAbstract
         return $this->post($url,$params);
     }
 
-    /**
+/*    /**
      * 通过curl 模拟发送文件
      * @param array $data
+     * 4.0弃用
      */
-    public function upload($data){
+    /*public function upload($data){
 
         $url = $this->uri . strtolower(__FUNCTION__);
         $curlFiles=[];
@@ -71,7 +72,7 @@ class UploadClient extends CurlAbstract
         }
         curl_close($ch);
         return $response;
-    }
+    }*/
 
     public function uploadByFile(
         $max_size=5242880,
@@ -87,9 +88,12 @@ class UploadClient extends CurlAbstract
             throw new \Exception('图片不存在');
         }
         $curlFiles=[];
+        if(!function_exists('exif_imagetype')){
+            throw new \Exception('服务器缺少exif扩展');
+        }
         foreach ($_FILES as $key=>$val){
             if($val['size'] > $max_size){
-                throw new \Exception('图片太大，最多允许上传5M');
+                throw new \Exception('图片太大');
             }
             $mime = exif_imagetype($val['tmp_name']);
             $mime = image_type_to_mime_type($mime);
