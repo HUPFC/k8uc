@@ -11,6 +11,8 @@ namespace hupfc\k8uc\src;
 
 class Config
 {
+    CONST MC=1;
+    CONST OP=2;
     public static $log_options=[
         'map'=>[
             'error','warning','info','debug'
