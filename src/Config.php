@@ -27,6 +27,7 @@ class Config
         'clientip'=>'test',//客户端服务器ip
         'clienttype'=>0,//客户端业务类型 1:user.mc 2:联机平台
         'key' => '',//key 密钥
+        'debug'=>false,//debug参数
     ];
 
     public static $domain = [
