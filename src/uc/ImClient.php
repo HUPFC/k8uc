@@ -12,6 +12,7 @@ namespace hupfc\k8uc\src\uc;
 
 
 use hupfc\k8uc\src\Config;
+use hupfc\k8uc\src\CurlAbstract;
 
 class ImClient extends CurlAbstract
 {
